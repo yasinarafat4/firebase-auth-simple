@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -14,25 +14,32 @@ const Header = () => {
           />
         </div>
         <div className="menu-container d-flex flex-wrap ">
-          <Link to="/home" className="text-decoration-none">
-            <li className="nav-link items  ms-3 text-info fw-bolder">Home</li>
-          </Link>
-          <Link to="/login" className="text-decoration-none">
-            <li className="nav-link items  ms-3 text-info fw-bolder">Login</li>
-          </Link>
-
-          <li
-            role="button"
-            className="nav-link items  ms-3 text-info fw-bolder"
+          <NavLink
+            to="/home"
+            className={({ isActive }) =>
+              isActive ? "text-white" : "text-decoration-none"
+            }
           >
-            Logout
-          </li>
-
-          <Link to="/register" className="text-decoration-none">
+            <li className="nav-link items  ms-3 text-info fw-bolder">Home</li>
+          </NavLink>
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? "text-white" : "text-decoration-none"
+            }
+          >
+            <li className="nav-link items  ms-3 text-info fw-bolder">Login</li>
+          </NavLink>
+          <NavLink
+            to="/register"
+            className={({ isActive }) =>
+              isActive ? "text-white" : "text-decoration-none"
+            }
+          >
             <li className="nav-link items  ms-3 text-info fw-bolder">
               Register
             </li>
-          </Link>
+          </NavLink>
 
           {/* <Link to="/about" className="text-decoration-none">
         <li className="nav-link items  ms-3 text-info fw-bolder">About</li>
